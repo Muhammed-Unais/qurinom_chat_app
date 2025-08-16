@@ -21,6 +21,6 @@ class AuthRepository {
   }
 
   Future<String?> token() => _store.getToken();
-  Future<String?> userId() => _store.getUserId();
+  Future<String?> userId() async => await _store.getUserId();
   Future<void> logout() => _store.clear();
 }

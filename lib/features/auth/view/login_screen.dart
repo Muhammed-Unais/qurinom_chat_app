@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            log("Successfully logged in");
+            Navigator.pushReplacementNamed(context, '/chats');
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(
               context,
