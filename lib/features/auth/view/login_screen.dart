@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:_qurinom_chat_app/features/auth/view_model/bloc/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final email = TextEditingController(text: 'swaroop.vass@gmail.com');
-  final pass = TextEditingController(text: '@Tyrion99');
+  final email = TextEditingController();
+  final pass = TextEditingController();
   String role = 'vendor';
 
   @override
@@ -77,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                       child:
                           state is AuthLoading
-                              ? const CircularProgressIndicator()
+                              ? const CircularProgressIndicator(strokeWidth: 12)
                               : const Text('Sign in'),
                     ),
                   ],

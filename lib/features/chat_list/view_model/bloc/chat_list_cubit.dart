@@ -1,6 +1,6 @@
 import 'package:_qurinom_chat_app/features/auth/repo/auth_repo.dart';
 import 'package:_qurinom_chat_app/features/chat_list/model/chat_list_model.dart';
-import 'package:_qurinom_chat_app/features/chat_list/repo/chat_repo.dart';
+import 'package:_qurinom_chat_app/core/repo/chat_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 part 'chat_list_state.dart';

@@ -15,7 +15,6 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    // Map common errors
     if (err.type == DioExceptionType.connectionTimeout) {
       err = DioException.connectionTimeout(
         timeout: const Duration(seconds: 8),

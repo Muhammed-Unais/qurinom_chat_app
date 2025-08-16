@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:_qurinom_chat_app/features/chat_list/view_model/bloc/chat_list_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +38,18 @@ class ChatListScreen extends StatelessWidget {
                       : chat.participants[0].name ?? '',
                 ),
                 subtitle: Text(chat.lastMessage?.content ?? ''),
+                onTap:
+                    () => Navigator.pushNamed(
+                      context,
+                      "/chatRoom",
+                      arguments: (
+                        chat.id,
+                        context,
+                        chat.isGroupChat
+                            ? 'Group Chat'
+                            : chat.participants[0].name ?? '',
+                      ),
+                    ),
               );
             },
           );

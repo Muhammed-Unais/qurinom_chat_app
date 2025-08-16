@@ -1,4 +1,4 @@
-import 'package:_qurinom_chat_app/core/core/storage/secure_storage.dart';
+import 'package:_qurinom_chat_app/core/storage/secure_storage.dart';
 import 'package:_qurinom_chat_app/data/app_client.dart';
 import 'package:_qurinom_chat_app/data/resources/auth_remote.dart';
 import 'package:_qurinom_chat_app/features/auth/model/auth_response.dart';
