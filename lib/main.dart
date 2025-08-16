@@ -1,5 +1,9 @@
-import 'package:_qurinom_chat_app/view/login_screen.dart';
+import 'package:_qurinom_chat_app/core/core/storage/secure_storage.dart';
+import 'package:_qurinom_chat_app/features/auth/repo/auth_repo.dart';
+import 'package:_qurinom_chat_app/features/auth/view/login_screen.dart';
+import 'package:_qurinom_chat_app/features/auth/view_model/bloc/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +14,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    final store = SecureStore();
+    final authRepo = AuthRepository(store);
+
+    return MultiRepositoryProvider(
+      providers: [RepositoryProvider.value(value: authRepo)],
+      child: MultiBlocProvider(
+        providers: [BlocProvider(create: (_) => AuthCubit(authRepo))],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          ),
+          home: const LoginScreen(),
+        ),
       ),
-      home: const LoginScreen(),
     );
   }
 }
