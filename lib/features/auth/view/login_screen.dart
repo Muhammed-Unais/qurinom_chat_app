@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text(state.message)));
+            ).showSnackBar(SnackBar(content: Text("Something went wrong")));
           }
         },
         builder: (context, state) {
@@ -75,7 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                       child:
                           state is AuthLoading
-                              ? const CircularProgressIndicator(strokeWidth: 12)
+                              ? SizedBox(
+                                width: 16,
+                                height: 16,
+                                child: const CircularProgressIndicator(),
+                              )
                               : const Text('Sign in'),
                     ),
                   ],

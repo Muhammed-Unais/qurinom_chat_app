@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => ChatListCubit(chatRepo, authRepo)),
         ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'qurinom_chat_app',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
           routes: {
             '/':
                 (_) =>
-                    token == null
+                    token != null
                         ? const LoginScreen()
                         : const ChatListScreen(),
             '/chats': (ctx) => const ChatListScreen(),
