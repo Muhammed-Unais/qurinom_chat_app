@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           routes: {
             '/':
                 (_) =>
-                    token != null
+                    token == null
                         ? const LoginScreen()
                         : const ChatListScreen(),
             '/chats': (ctx) => const ChatListScreen(),
